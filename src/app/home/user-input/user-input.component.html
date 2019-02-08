@@ -1,0 +1,509 @@
+<div class="container">
+  <ngb-tabset>
+    <ngb-tab title="Well Completion Info">
+      <ng-template ngbTabContent>
+        <form #form="ngForm" (submit)="onSubmit(form)">
+          <h6>User</h6>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="userName">User Name</label>
+                <input class="form-control" id="userName">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h6>Pre-Well Completion Info</h6>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="wellName">Well Name</label>
+                <input class="form-control" id="wellName" name="WellName" #WellName="ngModel" [(ngModel)]="service.formData.WellName"
+                  required>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="county">County</label>
+                <select id="county" class="form-control" name="County" #County="ngModel" [(ngModel)]="service.formData.County">
+                  <option value=""></option>
+                  <option value="McMullen">McMullen</option>
+                  <option value="Atascosa">Atascosa</option>
+                  <option value="Karnes">Karnes</option>
+                  <option value="LaSalle">LaSalle</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fieldName">Field Name</label>
+                <select id="fieldName" class="form-control" name="County" #FieldName="ngModel" [(ngModel)]="service.formData.FieldName">
+                  <option value=""></option>
+                  <option value="Catarina">Catarina</option>
+                  <option value="Karnes">Karnes</option>
+                  <option value="North Tilden">North Tilden</option>
+                  <option value="Central Tilden">Central Tilden</option>
+                  <option value="West Tilden">West Tilden</option>
+                  <option value="East Tilden">East Tilden</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="completionYear">Completion Year</label>
+                <input class="form-control" name="CompletionYear" id="completionYear" #CompletionYear="ngModel"
+                  [(ngModel)]="service.formData.CompletionYear">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="h2sPermit">H2S Name</label>
+                <select id="h2sPermit" class="form-control" name="H2sPermit" #H2sPermit="ngModel" [(ngModel)]="service.formData.H2sPermit">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fracVendor">Frac Vendor</label>
+                <select id="fracVendor" class="form-control" name="FracVendor" #FracVendor="ngModel" [(ngModel)]="service.formData.FracVendor">
+                  <option value=""></option>
+                  <option value="Frac Tech 1">Frac Tech 1</option>
+                  <option value="Frac Tech 2">Frac Tech 2</option>
+                  <option value="Frac Tech Spot">Frac Tech Spot</option>
+                  <option value="Halliburton">Halliburton</option>
+                  <option value="C&J">C&J</option>
+                  <option value="Trican">Trican</option>
+                  <option value="CalFrac">CalFrac</option>
+                  <option value="Schlumberger">Schlumberger</option>
+                  <option value="Cudd">Cudd</option>
+                  <option value="BJ Services">BJ Services</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="npd">NPD</label>
+                <select id="npd" class="form-control" name="Npd" #Npd="ngModel" [(ngModel)]="service.formData.Npd">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="sleeveType">Sleeve Type</label>
+                <select id="sleeveType" class="form-control" name="SleeveType" #SleeveType="ngModel" [(ngModel)]="service.formData.SleeveType">
+                  <option value=""></option>
+                  <option value="Instant Opening">Instant Opening</option>
+                  <option value="Delayed Opening">Delayed Opening</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="raTracers">RA Tracers</label>
+                <select id="raTracers" class="form-control" name="RaTracers" #RaTracers="ngModel" [(ngModel)]="service.formData.RaTracers">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="chemTracers">Chemical Tracers</label>
+                <select id="chemTracers" class="form-control" name="ChemicalTracers" #ChemicalTracers="ngModel"
+                  [(ngModel)]="service.formData.ChemicalTracers">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="micSeismic">Micro Seismic</label>
+                <select id="micSeismic" class="form-control" name="Microseismic" #Microseismic="ngModel" [(ngModel)]="service.formData.Microseismic">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="plugVendor">Plug Vendor</label>
+                <select id="plugVendor" class="form-control" name="PlugVendor" #PlugVendor="ngModel" [(ngModel)]="service.formData.PlugVendor">
+                  <option value=""></option>
+                  <option value="Halliburton">Halliburton</option>
+                  <option value="Baker">Baker</option>
+                  <option value="Magnum">Magnum</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="rig">Rig</label>
+                <select id="rig" class="form-control" name="Rig" #Rig="ngModel" [(ngModel)]="service.formData.Rig">
+                  <option value=""></option>
+                  <option value="Trinidad 137">Trinidad 137</option>
+                  <option value="Trinidad 139">Trinidad 139</option>
+                  <option value="Trinidad 123">Trinidad 123</option>
+                  <option value="H&P 496">H&P 496</option>
+                  <option value="Precision 591">Precision 591</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="sandType">Designed Sand Type</label>
+                <select id="sandType" class="form-control" name="DesignedSandType" #DesignedSandType="ngModel"
+                  [(ngModel)]="service.formData.DesignedSandType">
+                  <option value=""></option>
+                  <option value="30/50 & 40/70">30/50 & 40/70</option>
+                  <option value="100 Mesh">100 Mesh</option>
+                  <option value="100 Mesh & 40/70">100 Mesh & 40/70</option>
+                  <option value="100 Mesh, 30/50 & 40/70">100 Mesh, 30/50 & 40/70</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fluidType">Designed Fluid Type</label>
+                <select id="fluidType" class="form-control" name="DesignedFluidType" #DesignedFluidType="ngModel"
+                  [(ngModel)]="service.formData.DesignedFluidType">
+                  <option value=""></option>
+                  <option value="Slick Water">Slick Water</option>
+                  <option value="Short Slickwater A">Short Slickwater A</option>
+                  <option value="Short Slickwater B">Short Slickwater B</option>
+                  <option value="Super Slickwater A">Super Slickwater A</option>
+                  <option value="Super Slickwater B">Super Slickwater B</option>
+                  <option value="Super Short Slickwater A">Super Short Slickwater A</option>
+                  <option value="Super Short Slickwater B">Super Short Slickwater B</option>
+                  <option value="Fernandez A">Fernandez A</option>
+                  <option value="Fernandez B">Fernandez B</option>
+                  <option value="Monster Frac A">Monster Frac A</option>
+                  <option value="Monster Frac B">Monster Frac B</option>
+                  <option value="100 Mesh Ramp">100 Mesh Ramp</option>
+                  <option value="Chesapeake">Chesapeake</option>
+                  <option value="ZGFP">ZGFP</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="clusters">Clusters</label>
+                <select id="clusters" class="form-control" name="Clusters" #Clusters="ngModel" [(ngModel)]="service.formData.Clusters">
+                  <option value=""></option>
+                  <option value="4 Cluster">4 Cluster</option>
+                  <option value="5 Cluster">5 Cluster</option>
+                  <option value="8 Cluster">8 Cluster</option>
+                  <option value="10 Cluster">10 Cluster</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="compWbs">Completion WBS Number</label>
+                <input class="form-control" name="CompletionWbsNo" id="compWbs" #CompletionWbsNo="ngModel" [(ngModel)]="service.formData.CompletionWbsNo">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="compWbsAmt">Completion WBS Amount</label>
+                <input class="form-control" name="CompletionWbsAmount" id="compWbsAmt" #CompletionWbsAmount="ngModel"
+                  [(ngModel)]="service.formData.CompletionWbsAmount">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="pitName">Staging Pit Name</label>
+                <input class="form-control" name="StagingPitName" id="pitName" #StagingPitName="ngModel" [(ngModel)]="service.formData.StagingPitName">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="press">Max Surface Treating Press</label>
+                <input class="form-control" name="MaxSurfaceTreatingPress" id="press" #MaxSurfaceTreatingPress="ngModel"
+                  [(ngModel)]="service.formData.MaxSurfaceTreatingPress">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="clusterSpacing">Cluster Spacing</label>
+                <input class="form-control" name="ClusterSpacing" id="clusterSpacing" #ClusterSpacing="ngModel"
+                  [(ngModel)]="service.formData.ClusterSpacing">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h6>Pre-Well Drilling Info</h6>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="spudDate">Spud Date</label>
+                <input class="form-control" name="SpudDate" id="spudDate" #SpudDate="ngModel" [(ngModel)]="service.formData.SpudDate">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="mrol">MROL Date</label>
+                <input class="form-control" name="MrolDate" id="mrol" #MrolDate="ngModel" [(ngModel)]="service.formData.MrolDate">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="casingSize">Casing Size</label>
+                <input class="form-control" name="CasingSize" id="casingSize" #CasingSize="ngModel" [(ngModel)]="service.formData.CasingSize">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="padWell">Pad Well</label>
+                <select id="padWell" class="form-control" name="PadWell" #PadWell="ngModel" [(ngModel)]="service.formData.PadWell">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="api">API Number</label>
+                <input class="form-control" name="ApiNo" id="api" #ApiNo="ngModel" [(ngModel)]="service.formData.ApiNo">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="drPermit">Drilling Permit</label>
+                <input class="form-control" name="DrillingPermit" id="drPermit" #DrillingPermit="ngModel" [(ngModel)]="service.formData.DrillingPermit">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="kop">KOP</label>
+                <input class="form-control" name="Kop" id="kop" #Kop="ngModel" [(ngModel)]="service.formData.Kop">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="kbgl">KB/GL</label>
+                <input class="form-control" name="KbGl" id="kbgl" #KbGl="ngModel" [(ngModel)]="service.formData.KbGl">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="kbcf">KB/CF</label>
+                <input class="form-control" name="KbCf" id="kbcf" #KbCf="ngModel" [(ngModel)]="service.formData.KbCf">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="gl">GL</label>
+                <input class="form-control" name="Gl" id="gl" #Gl="ngModel" [(ngModel)]="service.formData.Gl">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="md">MD</label>
+                <input class="form-control" name="Md" id="md" #Md="ngModel" [(ngModel)]="service.formData.Md">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="bht">BHT</label>
+                <input class="form-control" name="Bht" id="bht" #Bht="ngModel" [(ngModel)]="service.formData.Bht">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="tgZone">Top of Target Zone (MD)</label>
+                <input class="form-control" name="TopOfTargetZoneMd" id="tgZone" #TopOfTargetZoneMd="ngModel"
+                  [(ngModel)]="service.formData.TopOfTargetZoneMd">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h6>Well Info</h6>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="koPoint">Marker Joint At KO Point</label>
+                <input class="form-control" name="MarkerJointAtKoPoint" id="koPoint" #MarkerJointAtKoPoint="ngModel"
+                  [(ngModel)]="service.formData.MarkerJointAtKoPoint">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="thirty">Marker Joint At 30 Deg</label>
+                <input class="form-control" name="MarkerJointAt30Deg" id="thirty" #MarkerJointAt30Deg="ngModel"
+                  [(ngModel)]="service.formData.MarkerJointAt30Deg">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="bSec">B Section Test Pressure</label>
+                <input class="form-control" name="BSectionTestPressure" id="bSec" #BSectionTestPressure="ngModel"
+                  [(ngModel)]="service.formData.BSectionTestPressure">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="fracStack">Frac Stack Test Pressure</label>
+                <input class="form-control" name="FracStackTestPressure" id="fracStack" #FracStackTestPressure="ngModel"
+                  [(ngModel)]="service.formData.FracStackTestPressure">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="sfIron">Surface Iron Test Pressure</label>
+                <input class="form-control" name="SurfaceIronTestPressure" id="sfIron" #SurfaceIronTestPressure="ngModel"
+                  [(ngModel)]="service.formData.SurfaceIronTestPressure">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="sleeveOpen">Sleeve Opening Pressure</label>
+                <input class="form-control" name="SleeveOpeningPressure" id="sleeveOpen" #SleeveOpeningPressure="ngModel"
+                  [(ngModel)]="service.formData.SleeveOpeningPressure">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="maxSleeve">Max Sleeve Pressure</label>
+                <input class="form-control" name="MaxSleevePressure" id="maxSleeve" #MaxSleevePressure="ngModel"
+                  [(ngModel)]="service.formData.MaxSleevePressure">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="slTest">Sleeve Test Pressure</label>
+                <input class="form-control" name="SleeveTestPressure" id="slTest" #SleeveTestPressure="ngModel"
+                  [(ngModel)]="service.formData.SleeveTestPressure">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="engineer">Completion Engineer</label>
+                <select id="engineer" class="form-control" name="CompletionsEngineer" #CompletionsEngineer="ngModel"
+                  [(ngModel)]="service.formData.CompletionsEngineer">
+                  <option value=""></option>
+                  <option value="Sarrah Wettermark Carr">Sarrah Wettermark Carr</option>
+                  <option value="Shea Wooley">Shea Wooley</option>
+                  <option value="Derek Galyen">Derek Galyen</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h6>Plug Pump</h6>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="plugBumped">Plug Bumped</label>
+                <select id="plugBumped" class="form-control" name="PlugBumped" #PlugBumped="ngModel" [(ngModel)]="service.formData.PlugBumped">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="psi">Plug Bumped Psi</label>
+                <input class="form-control" name="PlugBumpedPsi" id="psi" #PlugBumpedPsi="ngModel" [(ngModel)]="service.formData.PlugBumpedPsi">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="psiOver">Psi Over</label>
+                <input class="form-control" name="PsiOver" id="psiOver" #PsiOver="ngModel" [(ngModel)]="service.formData.PsiOver">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="userName">BBLs Displaced</label>
+                <input class="form-control" name="BblsDispatched" id="userName" #BblsDispatched="ngModel" [(ngModel)]="service.formData.BblsDispatched">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="userName">BBLs Bled Back</label>
+                <input class="form-control" name="BblsBledBack" id="userName" #BblsBledBack="ngModel" [(ngModel)]="service.formData.BblsBledBack">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="userName">BBL Cement Recovered</label>
+                <input class="form-control" name="BblCementRecovered" id="userName" #BblCementRecovered="ngModel"
+                  [(ngModel)]="service.formData.BblCementRecovered">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="userName">BBL Spacer Recovered</label>
+                <input class="form-control" name="BblSpacerRecoverd" id="userName" #BblSpacerRecoverd="ngModel"
+                  [(ngModel)]="service.formData.BblSpacerRecoverd">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="holdings">Float Holdings</label>
+                <select id="holdings" class="form-control" name="FloatsHolding" #FloatsHolding="ngModel" [(ngModel)]="service.formData.FloatsHolding">
+                  <option value=""></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h6>Other Info</h6>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="heel">Planned Heel Angle</label>
+                <input class="form-control" name="PlannedHeelAngle" id="heel" #PlannedHeelAngle="ngModel" [(ngModel)]="service.formData.PlannedHeelAngle">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="bottom">Bottom of Sleeve</label>
+                <input class="form-control" name="BottomOfSleeve" id="bottom" #BottomOfSleeve="ngModel" [(ngModel)]="service.formData.BottomOfSleeve">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="eot">EOT Angle</label>
+                <input class="form-control" name="EotAngle" id="eot" #EotAngle="ngModel" [(ngModel)]="service.formData.EotAngle">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Submit</button>
+          </div>
+        </form>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Directional Survey">
+      <ng-template ngbTabContent>
+        <div class="form-group">
+          <form #formUL="ngForm" (submit)="onUploadSubmit(formUL)">
+            <h6>Upload Survey Data</h6>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+          </form>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
