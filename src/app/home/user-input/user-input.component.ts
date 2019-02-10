@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { WellProcedureService } from 'src/app/shared/well-procedure.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
+import { parse } from "papaparse";
 
 @Component({
   selector: 'app-user-input',
@@ -8,13 +9,72 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./user-input.component.css']
 })
 export class UserInputComponent implements OnInit {
+  @ViewChild('labelImport')
+  labelImport: ElementRef;
+
+  formImport: FormGroup;
+  fileToUpload: File = null;
+
+  hasHeader: boolean = false;
+  arr: any;
+  options: any = {
+    header: false,
+    skipEmptyLines: true,
+    complete: (result) => { this.arr = result.data }
+  }
+
   public result: any;
 
-  constructor(private service: WellProcedureService) { }
+  constructor(private service: WellProcedureService) {
+    this.formImport = new FormGroup({
+      importFile: new FormControl('')
+    });
+  }
 
   ngOnInit() {
     //this.resetForm();
   }
+
+  onSubmit(form: NgForm) {
+    this.service.postWellCompletionInfo(form.value).subscribe(
+      res => {
+        this.result = res;
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  onFileChange(files: FileList) {
+    this.labelImport.nativeElement.innerText = files.item(0).name;
+    this.fileToUpload = files.item(0);
+  }
+
+  uploadFile() {
+    const csvData = parse(this.fileToUpload, {
+      header: this.hasHeader,
+      skipEmptyLines: true,
+      complete: (rs) => {
+        this.postDataToApi(rs.data);
+      }
+    });
+  }
+
+  postDataToApi(dataset) {
+    this.service.postDirSurveyData(dataset).subscribe(
+      res => {
+        this.result = res;
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  // callScript() {
+
+  // }
 
   // resetForm(form?: NgForm) {
   //   if (form != null) {
@@ -78,15 +138,5 @@ export class UserInputComponent implements OnInit {
   //     }
   //   }
   // }
-  onSubmit(form: NgForm) {
-    this.service.postWellCompletionInfo(form.value).subscribe(
-      res => {
-        this.result = res;
-      },
-      err => {
-        console.log(err);
-      }
-    )
-  }
 
 }
