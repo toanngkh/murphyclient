@@ -11,8 +11,8 @@ export class WellProcedureService {
   //dirSvyData: DirSurveyData[] = [];
   dirSvyData: string;
 
-  readonly rootURL = 'https://localhost:44354/api';
-  readonly csvUploadURL = 'https://localhost:44354/api';
+  readonly rootURL = 'https://proceduregenerator20190210045919.azurewebsites.net/api';
+  //readonly csvUploadURL = 'https://localhost:44354/api';
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,6 @@ export class WellProcedureService {
   }
 
   postDirSurveyData(dirSvyData: string) {
-    return this.http.post(this.csvUploadURL + '/dirsvydatas', dirSvyData);
+    return this.http.post(this.rootURL + '/dirsvydatas', dirSvyData);
   }
 }
