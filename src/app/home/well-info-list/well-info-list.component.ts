@@ -9,7 +9,7 @@ import { WellProcedureService } from 'src/app/shared/well-procedure.service';
 export class WellInfoListComponent implements OnInit {
   readonly link = 'http://ec2-52-14-226-87.us-east-2.compute.amazonaws.com/HTML_files/run_script.php?id=';
 
-  constructor(private service: WellProcedureService) { }
+  constructor(service: WellProcedureService) { }
 
   ngOnInit() {
 
