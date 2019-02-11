@@ -13,7 +13,7 @@ export class WellInfoListComponent implements OnInit {
   constructor(public service: WellProcedureService) { }
 
   ngOnInit() {
-
+    this.service.getWellCompletionInfo();
   }
 
 }
