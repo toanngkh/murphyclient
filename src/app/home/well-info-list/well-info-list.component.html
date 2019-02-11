@@ -1,0 +1,13 @@
+<h6>List of Wells</h6>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of service.wellInfoList">
+    <div class="row">
+      <div class="col-md-9">{{ item.WellName }}</div>
+      <div class="col-md-3">
+        <a [href]="link + item.WellName" class="btn btn-outline-secondary" role="button" target="_blank">
+          Generate procedure
+        </a>
+      </div>
+    </div>
+  </li>
+</ul>

@@ -15,14 +15,6 @@ export class UserInputComponent implements OnInit {
   formImport: FormGroup;
   fileToUpload: File = null;
 
-  hasHeader: boolean = false;
-  arr: any;
-  options: any = {
-    header: false,
-    skipEmptyLines: true,
-    complete: (result) => { this.arr = result.data }
-  }
-
   public result: any;
 
   constructor(private service: WellProcedureService) {
@@ -32,7 +24,7 @@ export class UserInputComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.resetForm();
+    this.service.getWellCompletionInfo();
   }
 
   onSubmit(form: NgForm) {
@@ -53,7 +45,7 @@ export class UserInputComponent implements OnInit {
 
   uploadFile() {
     const csvData = parse(this.fileToUpload, {
-      header: this.hasHeader,
+      header: true,
       skipEmptyLines: true,
       complete: (rs) => {
         this.postDataToApi(rs.data);

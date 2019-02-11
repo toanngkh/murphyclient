@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { UserInputComponent } from './home/user-input/user-input.component';
 import { HomeComponent } from './home/home.component';
 import { WellProcedureService } from './shared/well-procedure.service';
+import { WellInfoListComponent } from './home/well-info-list/well-info-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserInputComponent,
-    HomeComponent
+    HomeComponent,
+    WellInfoListComponent
   ],
   imports: [
     NgbModule,
