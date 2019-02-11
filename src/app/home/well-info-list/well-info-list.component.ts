@@ -7,7 +7,7 @@ import { WellProcedureService } from 'src/app/shared/well-procedure.service';
   styleUrls: ['./well-info-list.component.css']
 })
 export class WellInfoListComponent implements OnInit {
-  service: WellProcedureService;
+  service = WellProcedureService;
   readonly link = 'http://ec2-52-14-226-87.us-east-2.compute.amazonaws.com/HTML_files/run_script.php?id=';
 
   constructor() { }
