@@ -9,7 +9,7 @@ import { DirSurveyData } from "./dir-survey-data.model";
 export class WellProcedureService {
   formData = WellProcedureInput;
   dirSvyData: string;
-  wellInfoList: WellProcedureInput[];
+  wellInfoList: WellProcedureInput[] = [];
 
   readonly rootURL = 'https://proceduregenerator20190210045919.azurewebsites.net/api';
   //readonly csvUploadURL = 'https://localhost:44354/api';
