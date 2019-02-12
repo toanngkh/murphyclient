@@ -11,7 +11,7 @@ export class WellProcedureService {
   dirSvyData: string;
   wellInfoList = [] as WellProcedureInput[];
 
-  readonly rootURL = 'http://40.113.216.254/api';
+  readonly rootURL = 'https://proceduregenerator20190210045919.azurewebsites.net/api';
   //readonly rootURL = 'https://proceduregenerator20190210045919.azurewebsites.net/api';
   //readonly csvUploadURL = 'https://localhost:44354/api';
 
